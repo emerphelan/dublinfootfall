@@ -19,7 +19,7 @@ fit.footfall <- function(location = c("Bachelors.walk.Bachelors.way", "Westmorel
   # find index of location
   location_type <- which(location_list == location)
 
-  # create new dataset with just the location and datetime
+  # create new data set with just the location and datetime
   dat <- subset(x = dub, select = c(1, location_type))
 
   # change the name of the location variable
@@ -32,7 +32,7 @@ fit.footfall <- function(location = c("Bachelors.walk.Bachelors.way", "Westmorel
     dat_day <- dat
     dat_day$datetime <- week(dat_day$datetime)
 
-    mod <- lm(location ~ datetime, data = dat_day)
+    mod <- stats::lm(location ~ datetime, data = dat_day)
 
   } else if (mod_type == "weekly") {
 
@@ -41,15 +41,16 @@ fit.footfall <- function(location = c("Bachelors.walk.Bachelors.way", "Westmorel
     dat_week <- dat
     dat_week$datetime <- week(dat_week$datetime)
 
-    mod <- lm(location ~ datetime, data = dat_week)
+    mod <- stats::lm(location ~ datetime, data = dat_week)
 
   } else {
 
     # for monthly
 
     dat_month <- dat
-    dat_month$datetime <- month(dat_month$datetime)
+    dat_month$datetime <- lubridate::month(dat_month$datetime)
 
-    mod <- lm(location ~ datetime, data = dat_month)
+    mod <- stats::lm(location ~ datetime, data = dat_month)
   }
 }
+
