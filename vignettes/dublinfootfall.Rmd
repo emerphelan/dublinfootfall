@@ -9,6 +9,10 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
+  fig.width = 7,
+  fig.height = 5,
+  fig.align = "center",
+  message = FALSE,
   collapse = TRUE,
   comment = "#>"
 )
@@ -17,3 +21,40 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(dublinfootfall)
 ```
+
+## Introduction
+
+__dublinfootfall__ is an R package that loads the footfall counts of pedestrians in Dublin in 2021, uses the data to create basic linear regression models, and visualises the data in a variety of plots. Three functions are provided:
+
+1. `load_footfall()`: for loading and tidying the data,
+
+2. `fit.footfall()`: for fitting linear regression models to the data,
+
+3. `plot()`: for producing visualisations.
+
+These functions should be applied sequentially.
+
+### Installation
+
+__dublinfootfall__ will run in Windows, Mac OS X, or Linux. To install it you first need to install [R](https://cran.r-project.org/). Installing [RStudio](https://www.rstudio.com/) as a nice desktop environment for using R is also recommended.
+
+Once in R you can type at the R command prompt:
+
+```{r, eval=FALSE}
+install.packages('devtools')
+devtools::install_github('emerphelan/dublinfootfall')
+```
+
+to install the latest development version of the package from the __dublinfootfall__ [GitHub page](https://github.com/emerphelan/dublinfootfall). 
+
+In either case, if you then type:
+
+```{r, eval=FALSE}
+library(dublinfootfall)
+```
+
+it will load in all the aforementioned __dublinfootfall__ functions.
+
+Some features may not yet be fully tested, and occasionally this version might be liable to break when it is in the process of being updated. 
+
+
