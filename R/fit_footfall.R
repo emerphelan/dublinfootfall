@@ -1,56 +1,67 @@
-fit <- function(dub = dub,
-                data_type = c("yearly", "quarterly", "monthly"),
-                fit_type = c("lm", "loess", "smooth.spline")) {
-  UseMethod("fit")
-}
+#' Linear regression model for Dublin 2021 footfall data.
+#'
+#' The function creates a linear regression model for either daily, weekly or
+#' monthly data for the Dublin 2021 footfall data set. It returns an object
+#' containing a variety of values of potential interest.
+#'
+#' @param x The Dublin 2021 footfall data.
+#' @param data_type Whether the model should examine daily, weekly
+#' or monthly data. Set to daily by default.
+#'
+#' @return An object of class \code{"lrmodel"} which contains the attributes:
+#' mod.residuals: residual values,
+#' mod.fitted: fitted values,
+#' mod.coef: coefficients,
+#' mod.summary: model summary,
+#' mod.fstat: F-statistic,
+#' mod.call: the call, ie. the formula used to generate the model,
+#' mod.sigma: the sigma value.
+#'
+#' @export
+#'
+#' @author Emer Phelan - </{emer.phelan.2019@@mumail.ie}>
+#' @seealso \code{\link{fit}}, \code{\link{load_footfall}}
+#'
+#' @examples
+#' dublin <- load_footfall()
+#' fit1 <- fit.footfall(dublin)
+#' fit2 <- fit.footfall(dublin, mod_type = "weekly")
+#' fit3 <- fit.footfall(dublin, mod_type = "monthly")
+#'
+#' plot(fit1$mod.fitted, fit1$mod.residuals)
+#' fit2$mod.sigma
+#' fit3$mod.summary
+fit.footfall <- function(x,
+                         data_type = "daily") {
 
-fit.footfall <- function(location = c("Bachelors.walk.Bachelors.way", "Westmoreland.Street.West.Carrolls",
-                                      "Westmoreland.Street.East.Fleet.street", "O.Connell.st.Princes.st.North",
-                                      "O.Connell.St.Parnell.St.AIB", "Henry.Street.Coles.Lane.Dunnes",
-                                      "Dawson.Street.Molesworth", "College.st.Westmoreland.st", "College.Green.Church.Lane"),
-                         mod_type = c("daily", "weekly", "monthly")) {
+  dub <- as.data.frame(x)
 
-  # list of possible locations
-  location_list <- c("Bachelors.walk.Bachelors.way", "Westmoreland.Street.West.Carrolls",
-                     "Westmoreland.Street.East.Fleet.street", "O.Connell.st.Princes.st.North",
-                     "O.Connell.St.Parnell.St.AIB", "Henry.Street.Coles.Lane.Dunnes",
-                     "Dawson.Street.Molesworth", "College.st.Westmoreland.st", "College.Green.Church.Lane")
-
-  # find index of location
-  location_type <- which(location_list == location)
-
-  # create new data set with just the location and datetime
-  dat <- subset(x = dub, select = c(1, location_type))
-
-  # change the name of the location variable
-  names(dat)[2] = "location"
-
-  if(mod_type == "daily") {
+  if(data_type == "daily") {
 
     # for daily
+    mod <- stats::lm(Count ~ Location + lubridate::day(date), data = dub)
 
-    dat_day <- dat
-    dat_day$datetime <- week(dat_day$datetime)
-
-    mod <- stats::lm(location ~ datetime, data = dat_day)
-
-  } else if (mod_type == "weekly") {
+  } else if (data_type == "weekly") {
 
     # for weekly
-
-    dat_week <- dat
-    dat_week$datetime <- week(dat_week$datetime)
-
-    mod <- stats::lm(location ~ datetime, data = dat_week)
+    mod <- stats::lm(Count ~ Location + lubridate::week(date), data = dub)
 
   } else {
 
     # for monthly
-
-    dat_month <- dat
-    dat_month$datetime <- lubridate::month(dat_month$datetime)
-
-    mod <- stats::lm(location ~ datetime, data = dat_month)
+    mod <- stats::lm(Count ~ Location + lubridate::month(date), data = dub)
   }
+
+  s <- summary(mod)
+
+  fit <- structure(list(mod.residuals = mod$residuals,
+                        mod.fitted = mod$fitted.values,
+                        mod.coef = mod$coefficients,
+                        mod.summary = s,
+                        mod.fstat = s$fstatistic,
+                        mod.call = s$call,
+                        mod.sigma = s$sigma),
+                   class = "lrmodel")
+  return(fit)
 }
 
