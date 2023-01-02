@@ -28,7 +28,7 @@ __dublinfootfall__ is an R package that loads the footfall counts of pedestrians
 
 1. `load_footfall()`: for loading and tidying the data,
 
-2. `fit.footfall()`: for fitting linear regression models to the data,
+2. `fit_footfall()`: for fitting linear regression models to the data,
 
 3. `plot()`: for producing visualisations.
 
@@ -59,10 +59,10 @@ Some features may not yet be fully tested, and occasionally this version might b
 
 ## `load_footfall`
 
-This function loads in a data set from Dublin City Council containing footfall counts taken every hour for the duration of 2021. It arranges the data such that it contains 3 columns; "Date and Time" (a date variable containing the time the count was taken), "Location" (the name of the location) and "Count" (footfall count). There is an option to change the data format, with the options being a completely numeric date, eg. 02-05-2021, or a date with the month name, eg. 02-May-2021. In the example below, the format is the latter, with the name of the month in the date.
+This function loads in a data set from Dublin City Council containing footfall counts taken every hour for the duration of 2021. It arranges the data such that it contains 3 columns; "Date and Time" (a date variable containing the time the count was taken), "Location" (the name of the location) and "Count" (footfall count). There is an option to change the data format, with the options being a completely numeric date, eg. 02-05-2021, or a date with the month name, eg. 02-May-2021. In the example below, the format is the former, with the numeric month in the date.
 
 ```{r}
-dub_dat <- load_footfall("%d-%b-%Y")
+dub_dat <- load_footfall("%d-%d-%Y")
 dub_dat
 ```
 
