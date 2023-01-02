@@ -40,13 +40,12 @@
 #' 
 #' @examples
 #' date_format1 <- load_footfall("%d-%m-%Y)
-#' In the day month (numeric eg 01, 04 etc) and the year being 2021.
-#' Date would be: 01-01-2021 
-#' 
 #' 
 #' date_format2 <- load_footfall("%d-%b-%Y)
-#' In the day month (character eg Jan, Apr etc) and the year being 2021.
-#' Date would be: 01-Jan-2021
+#' 
+#' time_format 1 <-load_footfall(time_format = "%R")
+#' 
+#' time_format 2 <- load_footfall(time_format = "%T")
 #' 
 #' 
 load_footfall <- function(date_format = "%d-%m-%Y",
@@ -86,5 +85,5 @@ load_footfall <- function(date_format = "%d-%m-%Y",
   #Return object of class footfall
   class(output) <- c("footfall", class(output))
   return(output)
+  
 }
-
