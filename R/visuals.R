@@ -1,3 +1,9 @@
+# function plots out values returned from fitted values and loaded values.
+
+
+
+
+
 visuals <- function(fit, output) {
 
   df <- output
