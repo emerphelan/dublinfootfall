@@ -31,7 +31,8 @@
 #' plot(fit1$mod.fitted, fit1$mod.residuals)
 #' fit2$mod.sigma
 #' fit3$mod.summary
-fit.footfall <- function(x,
+
+fit_footfall <- function(x,
                          data_type = "daily") {
 
   dub <- as.data.frame(x)
