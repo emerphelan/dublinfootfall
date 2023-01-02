@@ -1,15 +1,29 @@
 Package: dublinfootfall
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Analyse and plots pedesterian footfall data in various 
+locations in Dublin City in the year 2021 
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author@R : c(person("Emer", "Phelan", email= "Emer.phelan.2019 @mumail.ie", role =("auth", "cre"), 
+person("Liam", "Padden", email= "Liam.Padden.2020mumail.ie", role =("auth")
+person("Obinna", "Njoku", email= "obinna.njoku.2019", role =("auth"))
+Description: Downloads yearly data from Smart Dublin website which is 
+cleaned. Then linear regression models are preformed and plots are created. 
+License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 4.1.0)
+BugReports: https://github.com/emerphelan/dublinfootfall
+Imports: dplyr,
+  ggplot2,
+  readr,
+  tibble,
+  tidyr, 
+  dplyr, 
+  stats, 
+  lubridate,
+RoxygenNote: 7.2.2
 Suggests: 
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+
