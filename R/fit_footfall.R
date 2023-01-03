@@ -32,25 +32,24 @@
 #' fit2$mod.sigma
 #' fit3$mod.summary
 
-fit_footfall <- function(x,
-                         data_type = "daily") {
+fit_footfall <- function(dat, data_type = "daily") {
 
-  dub <- as.data.frame(x)
+  dub <- as.data.frame(dat)
 
   if(data_type == "daily") {
 
     # for daily
-    mod <- stats::lm(Count ~ Location + lubridate::day(date), data = dub)
+    mod <- stats::lm(Count ~ Location + lubridate::wday(Date), data = dub)
 
   } else if (data_type == "weekly") {
 
     # for weekly
-    mod <- stats::lm(Count ~ Location + lubridate::week(date), data = dub)
+    mod <- stats::lm(Count ~ Location + lubridate::week(Date), data = dub)
 
   } else {
 
     # for monthly
-    mod <- stats::lm(Count ~ Location + lubridate::month(date), data = dub)
+    mod <- stats::lm(Count ~ Location + lubridate::month(Date), data = dub)
   }
 
   s <- summary(mod)
@@ -65,4 +64,3 @@ fit_footfall <- function(x,
                    class = "lrmodel")
   return(fit)
 }
-
