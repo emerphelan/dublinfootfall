@@ -4,7 +4,8 @@
 #' monthly data for the Dublin 2021 footfall data set. It returns an object
 #' containing a variety of values of potential interest.
 #'
-#' @param x The Dublin 2021 footfall data.
+#' @param x The Dublin 2021 footfall data, from the \code{"load_footfall()"}
+#' function.
 #' @param data_type Whether the model should examine daily, weekly
 #' or monthly data. Set to daily by default.
 #'
@@ -35,7 +36,6 @@
 fit_footfall <- function(dat, data_type = "daily") {
 
   dub <- as.data.frame(dat)
-  dub$Date <- lubridate::ymd(dub$Date)
 
   if(data_type == "daily") {
 
