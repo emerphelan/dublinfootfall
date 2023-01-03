@@ -7,7 +7,8 @@ Authors@R : c(person("Emer", "Phelan", email= "Emer.phelan.2019 @mumail.ie", rol
 person("Liam", "Padden", email= "Liam.Padden.2020mumail.ie", role =("auth")
 person("Obinna", "Njoku", email= "obinna.njoku.2019", role =("auth"))
 Description: Downloads yearly data from Smart Dublin website which is 
-cleaned. Then linear regression models are preformed and plots are created. 
+cleaned. There linear regression models are preformed in different time formats
+such as daily, weekly or monthly. Finally plots are created of the fitted values. 
 License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
