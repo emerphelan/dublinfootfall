@@ -18,10 +18,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(dublinfootfall)
-```
-
 ## Introduction
 
 __dublinfootfall__ is an R package that loads the footfall counts of pedestrians in Dublin in 2021, uses the data to create basic linear regression models, and visualises the data in a variety of plots. Three functions are provided:
@@ -30,7 +26,7 @@ __dublinfootfall__ is an R package that loads the footfall counts of pedestrians
 
 2. `fit_footfall()`: for fitting linear regression models to the data,
 
-3. `plot()`: for producing visualisations.
+3. `visuals()`: for producing visualisations.
 
 These functions should be applied sequentially.
 
@@ -49,17 +45,20 @@ to install the latest development version of the package from the __dublinfootfa
 
 In either case, if you then type:
 
-```{r, eval=FALSE}
+```{r}
 library(dublinfootfall)
 ```
 
-it will load in all the aforementioned __dublinfootfall__ functions.
-
-Some features may not yet be fully tested, and occasionally this version might be liable to break when it is in the process of being updated. 
+it will load in all the aforementioned __dublinfootfall__ functions.  
 
 ## `load_footfall`
 
-This function loads in a data set from Dublin City Council containing footfall counts taken every hour for the duration of 2021. It arranges the data such that it contains 3 columns; "Date and Time" (a date variable containing the time the count was taken), "Location" (the name of the location) and "Count" (footfall count). There is an option to change the data format, with the options being a completely numeric date, eg. 02-05-2021, or a date with the month name, eg. 02-May-2021. In the example below, the format is the former, with the numeric month in the date.
+This function loads in a data set from Dublin City Council containing footfall counts taken every hour for the duration of 2021. It arranges the data such that it contains 4 columns:   
+`Date`: the date the count was taken   
+`Time`: the time the count was taken    
+`Location`: the name of the location   
+`Count`: the footfall count    
+There is an option to change the date format, with the options being a completely numeric date, eg. 02-05-2021, or a date with the name of the month, eg. 02-May-2021. In the example below, the format is the former, with the numeric month in the date.
 
 ```{r}
 dub_dat <- load_footfall("%d-%m-%Y")
@@ -69,20 +68,18 @@ head(dub_dat)
 ## `fit_footfall`
 
 This function fits a linear regression model to the data returned by `load_footfall()`. The model uses `Count` as the response with `Date` and `Location` as the predictors. By default, it uses the daily form of the data, but this can be changed to weekly or monthly. It returns an object that contains a variety of different attributes related to the model:  
-- `mod.residuals`: the residual values  
-- `mod.fitted`: the fitted values  
-- `mod.coef`: the model coefficients  
-- `mod.summary`: the model summary  
-- `mod.fstat`: the F-statistic  
-- `mod.call`: the call used to generate the model  
-- `mod.sigma`: the standard deviation  
-In the example below, a model is generated from the monthly data and the model summary is printed.  
+`mod.residuals`: the residual values  
+`mod.fitted`: the fitted values  
+`mod.coef`: the model coefficients  
+`mod.summary`: the model summary  
+`mod.fstat`: the F-statistic  
+`mod.call`: the call used to generate the model  
+`mod.sigma`: the standard deviation of the random error  
+In the example below, a model is generated from the monthly data and the first 10 residual values are printed.  
 
 ```{r}
-mod <- stats::lm(Count ~ Location + lubridate::wday(Date), data = dub_dat)
-
 mod <- fit_footfall(dub_dat, data_type = "daily")
-mod$mod.summary
+mod$mod.residuals[1:10]
 ```
 
 
