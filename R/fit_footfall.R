@@ -35,6 +35,7 @@
 fit_footfall <- function(dat, data_type = "daily") {
 
   dub <- as.data.frame(dat)
+  dub$Date <- lubridate::ymd(dub$Date)
 
   if(data_type == "daily") {
 
