@@ -26,7 +26,7 @@ __dublinfootfall__ is an R package that loads the footfall counts of pedestrians
 
 2. `fit_footfall()`: for fitting linear regression models to the data,
 
-3. `visuals()`: for producing visualisations.
+3. `plot_footfall()`: for producing visualisations.
 
 These functions should be applied sequentially.
 
@@ -82,6 +82,14 @@ mod <- fit_footfall(dub_dat, data_type = "daily")
 mod$mod.residuals[1:10]
 ```
 
+## `plot_footfall`
+
+This function plots out the data returned by load_footfall(), and fit_footfall(). The function creates three different plots, The first plot is a point plot of the 'load_footfall()' data with respect to location and Counts, it also creates a box plot of this data. Then the third plot is a linear regression plot of the fit_footfall() model, plotting the residual against fitted values.
+In the example below, a plot is generated from the data of load_footfall() and fit_footfall().
+
+```{r}
+plot_footfall(dub_dat,mod)
+```
 
 
 
