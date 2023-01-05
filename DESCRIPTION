@@ -2,7 +2,7 @@ Package: dublinfootfall
 Type: Package
 Title: Analyse and plots pedesterian footfall data in various locations in Dublin City in the year 2021 
 Version: 0.1.0
-Authors@R : c(person("Emer", "Phelan", email= "Emer.phelan.2019 @mumail.ie", role =("auth", "cre"), person("Liam", "Padden", email= "Liam.Padden.2020mumail.ie", role =("auth"),person("Obinna", "Njoku", email= "obinna.njoku.2019", role =("auth"))
+Authors@R : c(person("Emer", "Phelan", email= "Emer.phelan.2019 @mumail.ie", role =("auth", "cre"), person("Liam", "Padden", email= "Liam.Padden.2020@mumail.ie", role =("auth"), person("Obinna", "Njoku", email= "Obinna.Njoku.2019@mumail.ie", role =("auth"))
 Description: Downloads yearly data from Smart Dublin website which is cleaned. There linear regression models are preformed in different time formats such as daily, weekly or monthly. Finally plots are created of the counts in various locations and also of the fitted values. 
 License: GPL (>=2)
 Encoding: UTF-8
