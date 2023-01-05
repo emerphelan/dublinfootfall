@@ -7,13 +7,13 @@
 load_footfall(date_format = "\%d-\%m-\%Y", time_format = "\%R", na.rm = TRUE)
 }
 \arguments{
-\item{date_format}{The default date_format is now in 
-day-month-year, this can be changed to have month as 
+\item{date_format}{The default date_format is now in
+day-month-year, this can be changed to have month as
 January instead of 01 which can be seen in the examples
 by changing "%d-%b-%Y rather than "%d-%m-%Y" .}
 
 \item{time_format}{The default for the time_format is in
-%R which is the equivalent to H:M ie hour to minutes. While 
+%R which is the equivalent to H:M ie hour to minutes. While
 %T in the code below is adding seconds which equivalent to
 %H:%M:%S.}
 
@@ -22,17 +22,17 @@ any NA values within the data itself.}
 }
 \value{
 An object of class footfall that has four columns
-1. date, 2. time, 3. Location and 4. count. 
+1. date, 2. time, 3. Location and 4. count.
 
-The date is in format day-month-year 
+The date is in format day-month-year
 The time column is in hours and minutes
-The locations columns gives the locations 
+The locations columns gives the locations
 of various streets around the city.
-The count column sums up the amount of 
+The count column sums up the amount of
 people in the area at dates and time as listed.
 }
 \description{
-This functions imports 2021 footfall data from the smart 
+This functions imports 2021 footfall data from the smart
 Dublin website and cleans this up too be used later on.
 }
 \examples{
@@ -43,8 +43,6 @@ date_format2 <- load_footfall("\%d-\%b-\%Y)
 time_format 1 <-load_footfall(time_format = "\%R")
 
 time_format 2 <- load_footfall(time_format = "\%T")
-
-
 }
 \seealso{
 See \code{\link{strptime}} for the available conversion

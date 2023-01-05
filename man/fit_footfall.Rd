@@ -31,8 +31,8 @@ containing a variety of values of potential interest.
 \examples{
 dublin <- load_footfall()
 fit1 <- fit_footfall(dublin)
-fit2 <- fit_footfall(dublin, mod_type = "weekly")
-fit3 <- fit_footfall(dublin, mod_type = "monthly")
+fit2 <- fit_footfall(dublin, data_type = "weekly")
+fit3 <- fit_footfall(dublin, data_type = "monthly")
 
 plot(fit1$mod.fitted, fit1$mod.residuals)
 fit2$mod.sigma
