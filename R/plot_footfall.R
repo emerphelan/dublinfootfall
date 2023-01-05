@@ -24,7 +24,7 @@
 #' @author Obinna Njoku - </{Obinna.Njoku.2019@@mumail.ie}>
 #' @seealso \code{\link{load_footfall}}, \code{\link{fit_footfall}}
 #'
-#' @importFrom tidyr "group_by" "mutate"
+#' @importFrom dplyr "mutate" "group_by"
 #' @importFrom ggplot2 "ggplot" "geom_point" "theme_bw" "labs"
 #'
 #' @examples
@@ -35,7 +35,7 @@
 #' plot(dublin, fit1, plot_type = "mean")
 
 plot_footfall<- function(dat,
-                         mod = fit_footfall(dat),
+                         mod,
                          plot_type = "res vs fit"){
 
 dat1 <- dat |>
@@ -62,8 +62,12 @@ if(plot_type == "mean") {
   } else {
 
     # for monthly
-    plot(mod$mod.fitted, mod$mod.residuals)
+    x <- mod$mod.fitted
+    y <- mod$mod.residuals
+    plot(x,y)
   }
 }
 
-
+d <- load_footfall()
+m <- fit_footfall(d)
+plot_footfall(d,m)
