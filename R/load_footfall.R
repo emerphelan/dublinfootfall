@@ -7,12 +7,14 @@
 #' @param date_format The default date_format is now in
 #' day-month-year, this can be changed to have month as
 #' January instead of 01 which can be seen in the examples
-#' by changing "%d-%b-%Y" rather than "%d-%m-%Y" .
+#' by changing adding in b rather than m which can be seen
+#' in the example below.
 #'
 #' @param time_format The default for the time_format is in
-#' "%R" which is the equivalent to "H:M" ie hour to minutes. While
-#' "%T" in the code below is adding seconds which equivalent to
-#' "%H:%M:%S".
+#' specifying R which is the equivalent to hour - minutes. While
+#' replacing this with T in the code below is adding seconds which
+#' is equivalent to hours, minutes and seconds.
+#' .
 #'
 #' @param na.rm This argument is equal to TRUE whereby it removes
 #' any NA values within the data itself.
