@@ -6,7 +6,7 @@
 #' @param date_format The default date_format is now in
 #' day-month-year, this can be changed to have month as
 #' January instead of 01 which can be seen in the examples
-#' by changing "%d-%b-%Y rather than "%d-%m-%Y" .
+#' by changing \code{"%d-%b-%Y"} rather than \code{"%d-%m-%Y"} .
 #' @param time_format The default for the time_format is in
 #' %R which is the equivalent to H:M ie hour to minutes. While
 #' %T in the code below is adding seconds which equivalent to
