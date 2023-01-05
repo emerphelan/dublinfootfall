@@ -3,19 +3,22 @@
 #' This functions imports 2021 footfall data from the smart
 #' Dublin website and cleans this up too be used later on.
 #'
+#'
 #' @param date_format The default date_format is now in
 #' day-month-year, this can be changed to have month as
 #' January instead of 01 which can be seen in the examples
-#' by changing \code{"%d-%b-%Y"} rather than \code{"%d-%m-%Y"} .
+#' by changing "%d-%b-%Y" rather than "%d-%m-%Y" .
+#'
 #' @param time_format The default for the time_format is in
-#' %R which is the equivalent to H:M ie hour to minutes. While
-#' %T in the code below is adding seconds which equivalent to
-#' %H:%M:%S.
+#' "%R" which is the equivalent to "H:M" ie hour to minutes. While
+#' "%T" in the code below is adding seconds which equivalent to
+#' "%H:%M:%S".
+#'
 #' @param na.rm This argument is equal to TRUE whereby it removes
 #' any NA values within the data itself.
 #'
 #' @return An object of class footfall that has four columns
-#' 1. date, 2. time, 3. Location and 4. count.
+#' Date, Time, Location and Count.
 #'
 #' The date is in format day-month-year
 #' The time column is in hours and minutes
@@ -23,6 +26,7 @@
 #' of various streets around the city.
 #' The count column sums up the amount of
 #' people in the area at dates and time as listed.
+#'
 #' @export
 #'
 #' @author Liam Padden - <\email{liam.padden.2020@@mumail.ie}
@@ -39,12 +43,14 @@
 #'
 #' date_format2 <- load_footfall("%d-%b-%Y)
 #'
-#' time_format 1 <-load_footfall(time_format = "%R")
+#' time_format1 <-load_footfall(time_format = "%R")
 #'
-#' time_format 2 <- load_footfall(time_format = "%T")
+#' time_format2 <- load_footfall(time_format = "%T")
+#'
+#'
 load_footfall <- function(date_format = "%d-%m-%Y",
-                         time_format = "%R",
-                         na.rm = TRUE) {
+                          time_format = "%R",
+                          na.rm = TRUE) {
 
   #URL
   url <- paste0("https://data.smartdublin.ie/dataset/cc421859-1f4f-43f6-b349-f4ca0e1c60fa/resource/ef530dde-1511-4617-b783-c4a3ad1cd7dc/download/2021-jan-dec-dcc-footfall.csv")
