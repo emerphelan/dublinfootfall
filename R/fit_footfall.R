@@ -21,7 +21,7 @@
 #' @export
 #'
 #' @author Emer Phelan - </{emer.phelan.2019@@mumail.ie}>
-#' @seealso \code{\link{fit}}, \code{\link{load_footfall}}
+#' @seealso \code{\link{load_footfall}}, \code{\link{plot_footfall}}
 #'
 #' @importFrom lubridate "wday" "week" "month"
 #' @importFrom stats "lm"

@@ -38,6 +38,7 @@
 #' @importFrom readr "read_csv"
 #' @importFrom dplyr "rename" "select" "ends_with" "mutate"
 #' @importFrom tidyr "pivot_longer" "separate"
+#' @importFrom tibble "tibble"
 #'
 #'
 #' @seealso See \code{\link{strptime}} for the available conversion
@@ -45,9 +46,9 @@
 #'
 #'
 #' @examples
-#' date_format1 <- load_footfall("%d-%m-%Y)
+#' date_format1 <- load_footfall("%d-%m-%Y")
 #'
-#' date_format2 <- load_footfall("%d-%b-%Y)
+#' date_format2 <- load_footfall("%d-%b-%Y")
 #'
 #' time_format1 <-load_footfall(time_format = "%R")
 #'

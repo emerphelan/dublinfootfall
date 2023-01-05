@@ -16,7 +16,6 @@ Imports: dplyr,
   readr,
   tibble,
   tidyr, 
-  dplyr, 
   stats, 
   lubridate,
 RoxygenNote: 7.2.3
