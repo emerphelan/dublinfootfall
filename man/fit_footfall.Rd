@@ -7,11 +7,11 @@
 fit_footfall(dat, data_type = "daily")
 }
 \arguments{
+\item{dat}{The Dublin 2021 footfall data, from the \code{"load_footfall()"}
+function.}
+
 \item{data_type}{Whether the model should examine daily, weekly
 or monthly data. Set to daily by default.}
-
-\item{x}{The Dublin 2021 footfall data, from the \code{"load_footfall()"}
-function.}
 }
 \value{
 An object of class \code{"lrmodel"} which contains the attributes:
@@ -30,9 +30,9 @@ containing a variety of values of potential interest.
 }
 \examples{
 dublin <- load_footfall()
-fit1 <- fit.footfall(dublin)
-fit2 <- fit.footfall(dublin, mod_type = "weekly")
-fit3 <- fit.footfall(dublin, mod_type = "monthly")
+fit1 <- fit_footfall(dublin)
+fit2 <- fit_footfall(dublin, mod_type = "weekly")
+fit3 <- fit_footfall(dublin, mod_type = "monthly")
 
 plot(fit1$mod.fitted, fit1$mod.residuals)
 fit2$mod.sigma

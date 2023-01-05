@@ -18,7 +18,6 @@
 #' A scatter plot of mean footfall counts across each Dublin location,
 #' A scatter plot of total footfall counts across each Dublin location,
 #' A residual vs fitted plot from the linear model object.
-#'
 #' @export
 #'
 #' @author Obinna Njoku - </{Obinna.Njoku.2019@@mumail.ie}>
@@ -66,7 +65,3 @@ if(plot_type == "mean") {
     plot(x,y)
   }
 }
-
-d <- load_footfall()
-m <- fit_footfall(d)
-plot_footfall(d,m)

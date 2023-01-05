@@ -84,11 +84,14 @@ mod$mod.residuals[1:10]
 
 ## `plot_footfall`
 
-This function plots out the data returned by load_footfall(), and fit_footfall(). The function creates three different plots, The first plot is a point plot of the 'load_footfall()' data with respect to location and Counts, it also creates a box plot of this data. Then the third plot is a linear regression plot of the fit_footfall() model, plotting the residual against fitted values.
-In the example below, a plot is generated from the data of load_footfall() and fit_footfall().
+This function plots different data visualisations from the data returned by the `load_footfall()` function and the object returned by the `fit_footfall()` function. There are three different types of possible visualisations:  
+A scatter plot of mean footfall counts for each location  
+A scatter plot of total footfall counts for each location  
+A residual vs fitted plot from the linear regression model  
+The example below produces the residual vs fitted plot for the model created in the previous example.  
 
 ```{r}
-plot_footfall(dub_dat,mod)
+plot_footfall(dub_dat, mod)
 ```
 
 
