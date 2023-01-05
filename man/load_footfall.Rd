@@ -9,15 +9,15 @@ load_footfall(date_format = "\%d-\%m-\%Y", time_format = "\%R", na.rm = TRUE)
 \arguments{
 \item{date_format}{The default date_format is now in
 day-month-year, this can be changed to have month as
-January instead of 01 which can be seen in the examples
-by changing adding in b rather than m which can be seen
-in the example below.}
+January. This can be changed instead of it showing this
+as numeric 01, one can replace the lowercase letter m to
+the lowercase letter b.This can be seen below
+ 01 which can be}
 
 \item{time_format}{The default for the time_format is in
 specifying R which is the equivalent to hour - minutes. While
 replacing this with T in the code below is adding seconds which
-is equivalent to hours, minutes and seconds.
-.}
+is equivalent to hours, minutes and seconds.}
 
 \item{na.rm}{This argument is equal to TRUE whereby it removes
 any NA values within the data itself.}
@@ -45,6 +45,7 @@ date_format2 <- load_footfall("\%d-\%b-\%Y)
 time_format1 <-load_footfall(time_format = "\%R")
 
 time_format2 <- load_footfall(time_format = "\%T")
+
 
 
 }
