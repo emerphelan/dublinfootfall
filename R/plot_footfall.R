@@ -39,8 +39,8 @@ plot_footfall<- function(dat,
                          plot_type = "res vs fit"){
 
 dat1 <- dat |>
-    tidyr::group_by(Location) |>
-    tidyr::mutate(mCount = mean(Count),
+    dplyr::group_by(Location) |>
+    dplyr::mutate(mCount = mean(Count),
                   tCount = sum(Count))
 
 if(plot_type == "mean") {
@@ -51,7 +51,7 @@ if(plot_type == "mean") {
       labs(title = "Mean Footfall for Each Dublin Location in 2021",
            x = "Mean Count")
 
-} else if (data_type == "total") {
+} else if (plot_type == "total") {
 
   ggplot2::ggplot(data = dub_dat1, aes(x = tCount, y = Location))+
     geom_point()+
@@ -61,7 +61,6 @@ if(plot_type == "mean") {
 
   } else {
 
-    # for monthly
     x <- mod$mod.fitted
     y <- mod$mod.residuals
     plot(x,y)
