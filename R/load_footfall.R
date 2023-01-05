@@ -54,8 +54,7 @@
 #'
 #' time_format2 <- load_footfall(time_format = "%T")
 #'
-#'
-#'
+
 load_footfall <- function(date_format = "%d-%m-%Y",
                           time_format = "%R",
                           na.rm = TRUE) {

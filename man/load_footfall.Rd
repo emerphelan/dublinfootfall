@@ -38,15 +38,13 @@ This functions imports 2021 footfall data from the smart
 Dublin website and cleans this up too be used later on.
 }
 \examples{
-date_format1 <- load_footfall("\%d-\%m-\%Y)
+date_format1 <- load_footfall("\%d-\%m-\%Y")
 
-date_format2 <- load_footfall("\%d-\%b-\%Y)
+date_format2 <- load_footfall("\%d-\%b-\%Y")
 
 time_format1 <-load_footfall(time_format = "\%R")
 
 time_format2 <- load_footfall(time_format = "\%T")
-
-
 
 }
 \seealso{

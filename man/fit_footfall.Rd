@@ -39,7 +39,7 @@ fit2$mod.sigma
 fit3$mod.summary
 }
 \seealso{
-\code{\link{fit}}, \code{\link{load_footfall}}
+\code{\link{load_footfall}}, \code{\link{plot_footfall}}
 }
 \author{
 Emer Phelan - </{emer.phelan.2019@mumail.ie}>
